@@ -1,1 +1,36 @@
-<p>signup-login works!</p>
+<div class="container ">
+  <div class="mat-elevation-z8">
+  <div style="display: ruby-text;" class="head">
+      <span>Login</span></div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="submit()" class="form">
+      <p>
+
+        <mat-form-field appearance="outline" style="width: 255px;">
+          <mat-label>Username</mat-label>
+          <input matInput type="text" formControlName="username">
+          <mat-error *ngIf="loginForm.get('username')?.hasError('pattern')">Invalid Email Pattern</mat-error>
+        </mat-form-field>
+
+      </p>
+      <p>
+
+        <mat-form-field class="size" appearance="outline">
+          <mat-label>Password:</mat-label>
+          <input matInput [type]="showPassword ? 'text' : 'password'" style="cursor: pointer;" formControlName="password">
+          <mat-icon matSuffix (click)="PasswordVisibility()" style="font-size: 7px; display: inline;">Check</mat-icon>
+          <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">Min length should be 6.</mat-error>
+        </mat-form-field>
+        
+      </p>
+      <div class="button"> 
+      <button mat-raised-button type="submit" color="primary" [disabled]="loginForm.invalid">Login!</button>
+      <button mat-raised-button type="button" color="accent" >Register</button>
+    </div>
+    <div *ngIf="error" class="error">{{ error }}</div>
+    </form>
+    
+  </div>
+   </div>
+
+  
