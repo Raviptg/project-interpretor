@@ -1,0 +1,15 @@
+<nav class="navbar">
+    <ul class="nav-list">
+      <li class="nav-item" routerLink="/dashboard" routerLinkActive="active" style="color: black;">Home</li>
+      <li class="nav-item" routerLink="/dashboard/admin-request" routerLinkActive="active" style="color: black;">Requests</li>
+    </ul>
+    <div class="user-info">
+      <p style="color: black;">Welcome {{firstName}}</p>
+      <button mat-button [matMenuTriggerFor]="menu">
+       Settings <i class="fa fa-cog" aria-hidden="true" style="color: white;"></i>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button type="button" mat-menu-item class="btn" (click)="auth.logout()">LogOut</button>
+      </mat-menu>
+    </div>
+  </nav>

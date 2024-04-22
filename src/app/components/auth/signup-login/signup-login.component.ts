@@ -5,9 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
-import { LoginUser, SessionStore, User } from 'src/app/model/User';
-import { ApiService } from 'src/app/services/api/api.service';
+import { LoginUser } from 'src/app/model/User';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
@@ -42,7 +40,7 @@ export class SignupLoginComponent {
       const user: LoginUser = new LoginUser();
       user.username = this.loginForm.value.username;
       user.password = this.loginForm.value.password;
-      this.auth.authLogin(user);
+      this.auth.authLogin(user)
     }
   }
 

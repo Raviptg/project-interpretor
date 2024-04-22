@@ -7,9 +7,28 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
+
   constructor(private http: HttpClient) { }
 
   login(credentials: { username: string, password: string }): Observable<any> {
     return this.http.post<any>(`https://localhost:7013/api/login`, credentials);
   };
+
+  registration(data: any): Observable<any>{
+    return this.http.post<any>(`https://localhost:7013/api/Registration`,data);
+};
+
+  InterpreterHome(personId: any): Observable<any> {
+    return this.http.get<any>(`https://localhost:7013/api/interpeterHome/${personId}`);
+  };    
+
+  InterpeterRequest(personId: any) :Observable<any> {
+    return this.http.get<any>(`https://localhost:7013/api/InterpeterRequst/${personId}`)
+  }
+
+  updaterequest(element : any){
+    return this.http.post(`https://localhost:7013/api/InterpeterRequst/UpdateAction`,element)
+  }
+
+
 }

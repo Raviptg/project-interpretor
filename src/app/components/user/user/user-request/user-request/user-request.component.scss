@@ -2,11 +2,12 @@
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000; 
+    z-index: 1000; /* Adjust as needed */
   }
   .table-container {
-    max-height: calc(85vh - 85px); 
-    overflow: auto; 
+    // margin-top: 100px; /* Adjust based on the combined height of header and search bar */
+    max-height: calc(85vh - 85px); /* Set max height to fill viewport minus header and search bar */
+    overflow: auto; /* Enable vertical scrolling */
   }
   
   .mat-table {
@@ -17,17 +18,17 @@
     position: sticky;
     top: 0;
     background-color: white;
-    z-index: 800; 
+    z-index: 800; /* Ensure it's above the table body */
   }
   
   .mat-header-cell,
   .mat-cell {
     padding: 8px 16px;
-    white-space: nowrap;
+    white-space: nowrap; /* Prevent wrapping content in cells */
   }
   
 .Search{
-    margin-top: 20px;
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     
@@ -36,6 +37,7 @@
     }
 }
 .demo-table{
+    padding: 20px;
       
     .mat-mdc-row .mat-mdc-cell {
         border-bottom: 1px solid transparent;
@@ -50,19 +52,28 @@
     .demo-row-is-clicked {
         font-weight: bold;
     }
-    th {
-        font-weight: bold;
+    .btn{
+        font-size: medium;
+    }
+
+    .but{
+        display: flex;
+        justify-content: space-around;
     }
     th,td {
         text-align: center !important; /* Center the text horizontally */
         vertical-align: middle !important; /* Center the text vertically */
     }
-    .accepted-color {
-      color: green; 
-    }
-    
-    .orange-color {
-      color: orange; 
-    } 
-
+    .accepted {
+        color: green;
+      }
+      
+      .denied {
+        color: red;
+      }    
+      th {
+        font-weight: bold;
+      }  
 }
+
+

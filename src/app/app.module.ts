@@ -14,6 +14,12 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from './common/common-module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AdminHeaderComponent } from './components/admin/admin/header/admin-header/admin-header.component';
+import { UserHeaderComponent } from './components/user/user/user-header/user-header/user-header.component';
+import { UserModule } from './components/user/user/user.module';
+import { UserRequestComponent } from './components/user/user/user-request/user-request/user-request.component';
+import { AdminRequestComponent } from './components/admin/admin/admin-request/admin-request/admin-request.component';
+import { RegisterComponent } from './components/auth/signup-login/Register/register/register.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +27,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     SignupLoginComponent,
     UserComponent,
-    AdminComponent
+    AdminComponent,
+    AdminHeaderComponent,
+    UserHeaderComponent,
+    UserRequestComponent,
+    AdminRequestComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +42,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    UserModule
+    
   ],
   providers: [
     AuthGuard,

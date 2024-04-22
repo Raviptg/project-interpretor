@@ -15,10 +15,13 @@ export class User {
 export class LoginUser {
     public username: string;
     public password: string;
+    
 }
 
 export class SessionStore {
     public userName: string;
     public userRole: string;
     public token: string;
+    public firstName: string;
+    public personId : number;
 }

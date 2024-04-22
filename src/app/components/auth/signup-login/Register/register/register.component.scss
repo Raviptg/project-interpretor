@@ -1,0 +1,19 @@
+.a{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+     align-items: center;
+    height: 100vh;
+
+ .note{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: #8f8a8a;
+ }
+ .row {
+    display: flex;
+    justify-content: space-around;
+ }
+
+}

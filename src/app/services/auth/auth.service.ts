@@ -14,6 +14,9 @@ export class AuthService {
       const session: SessionStore = new SessionStore();
       session.userName = result.person.userName;
       session.userRole = result.person.roles;
+      session.firstName = result.person.firstName;
+      session.personId = result.person.personId
+      console.log(result.person);
       sessionStorage.setItem('loggedInUser', JSON.stringify(session));
       if(this.isUserLoggedIn || this.isAdminLoggedIn) {
         this.router.navigateByUrl('/dashboard');

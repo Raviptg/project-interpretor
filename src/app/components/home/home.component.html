@@ -1,11 +1,7 @@
-<p>Hello {{auth.userRole}}</p>
-<button (click)="auth.logout()">Logout</button>
-
-
 <ng-template ngxPermissionsOnly="Admin">
-  <div>You can see this text congrats</div>
- </ng-template>
+    <app-admin/>
+</ng-template>
 
- <ng-template ngxPermissionsOnly="User">
-    <div>You can see this tvhchcfhfghfhfhbcghgfhext congrats</div>
-   </ng-template>
+<ng-template ngxPermissionsOnly="User">
+    <app-user/>
+</ng-template>

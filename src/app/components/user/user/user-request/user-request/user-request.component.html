@@ -1,0 +1,69 @@
+<app-user-header></app-user-header>
+<div class="Search">
+    <mat-form-field appearance="outline" class="filter">
+      <mat-label>Search by Any Values</mat-label>
+      <input matInput #filterInput (keyup)="applyFilter(filterInput.value)" placeholder="Search by Any Values">
+    </mat-form-field>
+  </div>
+
+<div class="demo-table table-container" tabindex="0" *ngIf="dataSource">
+    <table mat-table [dataSource]="dataSource"  matSort >
+  
+      <ng-container matColumnDef="courtId">
+        <!--(matSortChange)="announceSortChange($event)" mat-sort-header sortActionDescription="Sort by Court_Id" -->
+        <th mat-header-cell *matHeaderCellDef  > Court_Id </th>
+        <td mat-cell *matCellDef="let element" > {{element.courtId}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="courtLocation">
+        <th  mat-header-cell *matHeaderCellDef  > Location </th>
+        <td mat-cell *matCellDef="let element" > {{element.courtLocation}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="caseId">
+        <th mat-header-cell *matHeaderCellDef >caseId</th>
+        <td mat-cell *matCellDef="let element" > {{element.caseId}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="caseName">
+        <th mat-header-cell *matHeaderCellDef > Case_name </th>
+        <td mat-cell *matCellDef="let element" > {{element.caseName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="caseDate">
+        <th mat-header-cell *matHeaderCellDef > Case_Date </th>
+        <td mat-cell *matCellDef="let element" > {{element.caseDate | date: 'medium'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="person">
+        <th mat-header-cell *matHeaderCellDef > Person </th>
+        <td mat-cell *matCellDef="let element" > {{element.person}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="personLanguage">
+        <th mat-header-cell *matHeaderCellDef > Person Language </th>
+        <td mat-cell *matCellDef="let element" > {{element.personLanguage}} </td>
+      </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let element" [ngClass]="{ 'accepted': element.actions === 'Accepted', 'denied': element.actions === 'Denied' }"> 
+            <div *ngIf="element.actions.length === 0 || element.actions == null" style="display: flex; justify-content: space-between;">
+              <button class="mat-raised-button btn" color="primary" mat-icon-button (click)="accept(element)">Accept</button>
+              <button class="mat-raised-button btn" color="warn" mat-icon-button (click)="deny(element)">Deny</button>
+            </div>
+            <span *ngIf="element.actions && element.actions.length > 0">
+               {{ element.actions }}
+            </span>
+          </td>
+        </ng-container>   
+        
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                   showFirstLastButtons
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+</div>

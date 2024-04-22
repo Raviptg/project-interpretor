@@ -1,1 +1,70 @@
-<p>user works!</p>
+<app-user-header></app-user-header>
+
+<!-- <p>Hello {{auth.userRole}}</p>
+<button (click)="auth.logout()">Logout</button> -->
+
+<div class="Search">
+    <mat-form-field appearance="outline" class="filter">
+      <mat-label>Search by Any Values</mat-label>
+      <input matInput #filterInput (keyup)="applyFilter(filterInput.value)" placeholder="Search by Any Values">
+    </mat-form-field>
+  </div>
+
+
+
+  <div class="demo-table table-container" tabindex="0" *ngIf="dataSource">
+    <table mat-table [dataSource]="dataSource" >
+
+        <!-- matSort (matSortChange)="announceSortChange($event)"
+        mat-sort-header sortActionDescription="Sort by Court Id" -->
+
+      <ng-container matColumnDef="Court Id">
+        <th mat-header-cell *matHeaderCellDef > Court Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.courtId}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Court Location">
+        <th mat-header-cell *matHeaderCellDef > Court Location </th>
+        <td mat-cell *matCellDef="let element"> {{element.courtLocation}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="Case Id">
+        <th mat-header-cell *matHeaderCellDef> Case Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.caseId}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Case Name">
+        <th mat-header-cell *matHeaderCellDef> Case Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.caseName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Case Date">
+        <th mat-header-cell *matHeaderCellDef> Case Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.caseDate | date: 'medium'}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Person">
+        <th mat-header-cell *matHeaderCellDef> Person </th>
+        <td mat-cell *matCellDef="let element"> {{element.person}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Person Language">
+        <th mat-header-cell *matHeaderCellDef> Person Language </th>
+        <td mat-cell *matCellDef="let element"> {{element.personLanguage}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Status">
+        <th mat-header-cell *matHeaderCellDef > Status </th>
+        <td mat-cell *matCellDef="let element" [ngClass]="getStatusColor(element.status)"> {{element.status}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Payment">
+        <th mat-header-cell *matHeaderCellDef > Payment </th>
+        <td mat-cell *matCellDef="let element" [ngClass]="getStatusColor(element.payment)"> {{element.payment}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns" ></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns; stri"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                   showFirstLastButtons
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
