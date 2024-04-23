@@ -16,6 +16,7 @@ export class UserComponent {
 
   personId: number;
   dataSource: MatTableDataSource<any>;
+  
   displayedColumns: string[] = [
     'Court Id',
     'Court Location',

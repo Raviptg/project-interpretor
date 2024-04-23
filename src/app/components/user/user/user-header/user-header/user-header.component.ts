@@ -12,8 +12,8 @@ export class UserHeaderComponent {
 
   firstName: string;
   
-  constructor(public auth: AuthService,
-              private route:Router){}
+  
+  constructor(public auth: AuthService){}
 
   ngOnInit(): void {
     const sessionData = sessionStorage.getItem('loggedInUser');

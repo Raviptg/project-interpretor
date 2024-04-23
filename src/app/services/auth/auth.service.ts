@@ -19,7 +19,7 @@ export class AuthService {
       console.log(result.person);
       sessionStorage.setItem('loggedInUser', JSON.stringify(session));
       if(this.isUserLoggedIn || this.isAdminLoggedIn) {
-        this.router.navigateByUrl('/dashboard');
+        this.router.navigateByUrl(`/dashboard/${session.userRole.toLocaleLowerCase()}`);
       }
     });
   }

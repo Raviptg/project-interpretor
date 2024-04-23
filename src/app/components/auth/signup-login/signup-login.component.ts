@@ -35,7 +35,7 @@ export class SignupLoginComponent {
   }
 
   submit() {
-    console.log(this.loginForm.value);
+    // console.log(this.loginForm.value);
     if (this.loginForm.valid) {
       const user: LoginUser = new LoginUser();
       user.username = this.loginForm.value.username;
