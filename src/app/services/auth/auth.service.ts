@@ -16,7 +16,7 @@ export class AuthService {
       session.userRole = result.person.roles;
       session.firstName = result.person.firstName;
       session.personId = result.person.personId
-      console.log(result.person);
+      // console.log(result.person);
       sessionStorage.setItem('loggedInUser', JSON.stringify(session));
       if(this.isUserLoggedIn || this.isAdminLoggedIn) {
         this.router.navigateByUrl(`/dashboard/${session.userRole.toLocaleLowerCase()}`);
@@ -54,5 +54,15 @@ export class AuthService {
   public logout() {
     sessionStorage.removeItem('loggedInUser');
     this.router.navigateByUrl('/');
+  }
+
+  private personDetails: any;
+  
+  setPersonDetails(details: any) {
+    this.personDetails = details;
+  }
+
+  getPersonDetails() {
+    return this.personDetails;
   }
 }

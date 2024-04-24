@@ -1,4 +1,44 @@
 <app-admin-header></app-admin-header>
 
-<p>Hello {{auth.userRole}}</p>
-<!-- <button (click)="auth.logout()">Logout</button> -->
+<div class="Search">
+    <mat-form-field appearance="outline" class="filter">
+      <mat-label>Search by Any Values</mat-label>
+      <input matInput #filterInput (keyup)="applyFilter(filterInput.value)" placeholder="Search by Any Values">
+    </mat-form-field>
+  </div>
+  
+  <section class="demo-table table-container" tabindex="0"> 
+    <div  *ngIf="dataSource">
+      <table mat-table [dataSource]="dataSource">
+  
+        <ng-container matColumnDef="fullName">
+          <th mat-header-cell *matHeaderCellDef> Interpreter Name </th>
+          <td mat-cell *matCellDef="let element">{{ element.fullName }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="city">
+          <th mat-header-cell *matHeaderCellDef>Interpreter Location </th>
+          <td mat-cell *matCellDef="let element">{{ element.city }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="languages">
+          <th mat-header-cell *matHeaderCellDef>Interpreter Languages </th>
+          <td mat-cell *matCellDef="let element">{{ element.languages }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="Action">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-button (click)="openDialog(element)" mat-button color="warn">Request</button>
+          </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+  
+     <!-- <mat-paginator [pageSizeOptions]="[2, 10, 20]" showFirstLastButtons aria-label="Select page of element"> </mat-paginator> -->
+    </div> 
+  
+  </section>
+  

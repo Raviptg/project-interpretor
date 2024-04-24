@@ -1,0 +1,94 @@
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Adjust as needed */
+  }
+  .table-container {
+    // margin-top: 100px; /* Adjust based on the combined height of header and search bar */
+    max-height: calc(85vh - 85px); /* Set max height to fill viewport minus header and search bar */
+    overflow: auto; /* Enable vertical scrolling */
+  }
+  
+  .mat-table {
+    width: 100%;
+  }
+  
+  .mat-header-row {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 800; /* Ensure it's above the table body */
+  }
+  
+  .mat-header-cell,
+  .mat-cell {
+    padding: 8px 16px;
+    white-space: nowrap; /* Prevent wrapping content in cells */
+  }
+  
+.Search{
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    
+    .filter{
+        width: 80rem;
+    }
+}
+
+
+.demo-table{
+    padding: 10px;
+      
+    .mat-mdc-row .mat-mdc-cell {
+        border-bottom: 1px solid transparent;
+        border-top: 1px solid transparent;
+        cursor: pointer;
+    }
+      
+    .mat-mdc-row:hover .mat-mdc-cell {
+        border-color: currentColor;
+    }
+      
+    .demo-row-is-clicked {
+        font-weight: bold;
+    }
+    .btn{
+        font-size: medium;
+    }
+
+    .but{
+        display: flex;
+        justify-content: space-around;
+    }
+    th,td {
+        text-align: center !important; 
+        vertical-align: middle !important;
+    }
+    table {
+        width: 100%;
+      }
+      
+      .table-container {
+        height: 300px;
+        overflow: auto;
+    }
+    
+    .accepted {
+        color: green;
+    }
+      
+    .denied {
+        color: red;
+    }  
+    .Pending{
+        color: orange;
+    }
+    th {
+        font-weight: bold;
+      }
+
+}
+
+

@@ -1,2 +1,68 @@
 <app-admin-header></app-admin-header>
-<p>admin-request works!</p>
+
+<div class="Search">
+    <mat-form-field appearance="outline" class="filter">
+      <mat-label>Search by Any Values</mat-label>
+      <input matInput #filterInput (keyup)="applyFilter(filterInput.value)" placeholder="Search by Any Values">
+    </mat-form-field>
+    </div>
+    
+    <section class="demo-table table-container" tabindex="0">
+      <!-- <div class="demo-table"> -->
+        <table mat-table [dataSource]="dataSource">
+    
+          <ng-container matColumnDef="fullName">
+            <th mat-header-cell *matHeaderCellDef > Interpeter Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.fullName}} </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="courtId">
+            <th mat-header-cell *matHeaderCellDef > Court Id </th>
+            <td mat-cell *matCellDef="let element"> {{element.courtId}} </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="courtLocation">
+            <th mat-header-cell *matHeaderCellDef > Location </th>
+            <td mat-cell *matCellDef="let element"> {{element.courtLocation}} </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="caseId">
+            <th mat-header-cell *matHeaderCellDef > Case Id </th>
+            <td mat-cell *matCellDef="let element"> {{element.caseId}} </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="person">
+            <th mat-header-cell *matHeaderCellDef > Person </th>
+            <td mat-cell *matCellDef="let element"> {{element.person}} </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="personLanguage">
+            <th mat-header-cell *matHeaderCellDef > Person Language </th>
+            <td mat-cell *matCellDef="let element"> {{element.personLanguage}} </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="caseDate">
+            <th mat-header-cell *matHeaderCellDef > Case Date </th>
+            <td mat-cell *matCellDef="let element"> {{ element.caseDate | date: 'medium' }} </td>
+          </ng-container>      
+    
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef > Actions </th>
+            <td mat-cell *matCellDef="let element" [ngClass]="{ 'accepted': element.actions === 'Accepted', 'denied': element.actions === 'Denied','Pending': !element.actions || element.actions.trim() === '' }">
+              <ng-container *ngIf="!element.actions || element.actions.trim() === ''">
+                Pending
+              </ng-container>
+              <ng-container *ngIf="element.actions && element.actions.trim() !== ''">
+                {{ element.actions }}
+              </ng-container>
+            </td>
+          </ng-container>
+    
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; "></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    
+        <mat-paginator [pageSizeOptions]="[5,10,20,30]" showFirstLastButtons aria-label="Select page of element">
+        </mat-paginator>
+      <!-- </div>  -->
+    </section>  

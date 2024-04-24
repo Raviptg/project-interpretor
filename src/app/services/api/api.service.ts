@@ -30,5 +30,20 @@ export class ApiService {
     return this.http.post(`https://localhost:7013/api/InterpeterRequst/UpdateAction`,element)
   }
 
+  AdminHome(): Observable<any>{
+    return this.http.get<any>(`https://localhost:7013/api/AdminHome`)
+  }; 
+
+  getAdminRequestData(): Observable<any>{
+    return this.http.get<any>(`https://localhost:7013/api/InterpeterRequst/adminrequest`)
+  };
+
+  request(element : any){
+    return this.http.post(`https://localhost:7013/api/InterpeterRequst/RequestAction`,element)
+  }
+
+  getCaseData(caseId:string): Observable<any>{
+    return this.http.get(`https://localhost:7013/api/CaseDetailes/${caseId}`)
+  };
 
 }
