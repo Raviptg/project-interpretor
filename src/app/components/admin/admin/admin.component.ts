@@ -7,6 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api/api.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { InterpeterRequestComponent } from './interpeter-request/interpeter-request.component';
 // import { InterpeterRequestComponent } from './interpeter-request/interpeter-request.component';
 
 @Component({
@@ -42,10 +43,10 @@ export class AdminComponent {
   }
 
   openDialog(element: any) {
-    // const dialogRef = this.dialog.open(InterpeterRequestComponent);
-    // dialogRef.afterClosed().subscribe(result => {
-    //   this.auth.setPersonDetails(element);
-    // });
+    const dialogRef = this.dialog.open(InterpeterRequestComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      this.auth.setPersonDetails(element);
+    });
   }
 
   announceSortChange(sortState: Sort) {
