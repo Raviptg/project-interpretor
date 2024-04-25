@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { AdminRequestComponent } from './admin-request/admin-request/admin-request.component';
+import { NewInterpeterComponent } from '../new-interpeter/new-interpeter.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'admin-request',
     component: AdminRequestComponent
+  },
+  {
+    path: 'New-interpeter-request',
+    component: NewInterpeterComponent
   }
 ]
 

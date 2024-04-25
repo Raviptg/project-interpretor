@@ -24,4 +24,5 @@ export class SessionStore {
     public token: string;
     public firstName: string;
     public personId : number;
+    public isActive: boolean
 }

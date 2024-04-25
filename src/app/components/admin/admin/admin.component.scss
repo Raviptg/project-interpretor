@@ -37,6 +37,7 @@
     }
 }
 .demo-table{  
+  padding: 2%;
     .mat-mdc-row .mat-mdc-cell {
         border-bottom: 1px solid transparent;
         border-top: 1px solid transparent;
@@ -51,13 +52,15 @@
         font-weight: bold;
     }
 
-    th,td {
-        text-align: center !important; 
-        vertical-align: middle !important;   
-             
-    }
+    // td {
+    //     text-align: center !important; 
+    //     vertical-align: middle !important;   
+    //     align-items: flex-start;       
+    // }
     th {
         font-weight: bold;
+        text-align: center !important; 
+        // vertical-align: middle !important;
       }
 
 }

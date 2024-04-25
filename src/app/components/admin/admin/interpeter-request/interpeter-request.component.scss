@@ -1,0 +1,21 @@
+.mat-typography{
+    width: 1000px;
+    .note{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        color: #8f8a8a;
+    }
+    .row{
+    display: flex;
+    justify-content: space-around;
+    }
+    .date{
+        height: 56px;
+        width: 215px;
+        background-color: white;
+        border: 1px;
+        border-style: solid;
+        border-radius: 6px;
+    }
+}

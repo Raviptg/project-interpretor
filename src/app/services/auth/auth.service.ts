@@ -16,7 +16,8 @@ export class AuthService {
       session.userRole = result.person.roles;
       session.firstName = result.person.firstName;
       session.personId = result.person.personId
-      // console.log(result.person);
+      // session.isActive = result.person.isActive
+        console.log(result);
       sessionStorage.setItem('loggedInUser', JSON.stringify(session));
       if(this.isUserLoggedIn || this.isAdminLoggedIn) {
         this.router.navigateByUrl(`/dashboard/${session.userRole.toLocaleLowerCase()}`);

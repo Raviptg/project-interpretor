@@ -46,4 +46,7 @@ export class ApiService {
     return this.http.get(`https://localhost:7013/api/CaseDetailes/${caseId}`)
   };
 
+  newInterpeter(): Observable<any> {
+    return this.http.get(`https://localhost:7013/api/CaseDetailes/NewInterpeter`)
+  };
 }

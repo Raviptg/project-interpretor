@@ -4,6 +4,7 @@ import { SignupLoginComponent } from './components/auth/signup-login/signup-logi
 import { HomeComponent } from './components/home/home.component';
 import { AuthGuard } from './services/guard/auth.guard';
 import { NgxPermissionsGuard } from 'ngx-permissions';
+import { RegisterComponent } from './components/auth/signup-login/Register/register/register.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
     path: '',
     redirectTo: 'signupLogin',
     pathMatch: 'full'
+  },
+  {
+    path:'register',
+    component:RegisterComponent
   },
   {
     path: 'dashboard',

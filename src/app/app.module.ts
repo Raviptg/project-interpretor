@@ -20,6 +20,8 @@ import { UserModule } from './components/user/user/user.module';
 import { UserRequestComponent } from './components/user/user/user-request/user-request/user-request.component';
 import { AdminRequestComponent } from './components/admin/admin/admin-request/admin-request/admin-request.component';
 import { RegisterComponent } from './components/auth/signup-login/Register/register/register.component';
+import { MaterialModule } from './common/material/material/material.module';
+import { NewInterpeterComponent } from './components/admin/new-interpeter/new-interpeter.component';
 
 @NgModule({
   declarations: [
@@ -32,14 +34,15 @@ import { RegisterComponent } from './components/auth/signup-login/Register/regis
     UserHeaderComponent,
     UserRequestComponent,
     AdminRequestComponent,
-    RegisterComponent
+    RegisterComponent,
+    NewInterpeterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgxPermissionsModule.forRoot(),
     BrowserAnimationsModule,
-    CommonModule,
+    MaterialModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
