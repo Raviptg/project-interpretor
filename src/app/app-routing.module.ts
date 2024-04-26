@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AuthGuard } from './services/guard/auth.guard';
 import { NgxPermissionsGuard } from 'ngx-permissions';
 import { RegisterComponent } from './components/auth/signup-login/Register/register/register.component';
+import { NotAuthorizedComponent } from './common/components/not-authorized/not-authorized.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path:'register',
     component:RegisterComponent
+  },
+  {
+    path: 'not-authorized',
+    component: NotAuthorizedComponent
   },
   {
     path: 'dashboard',

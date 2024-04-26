@@ -29,3 +29,25 @@
 .size{
   width: 255px;
 }
+
+.toast {
+  position: fixed;
+  right: 0;
+  width: 300px;
+  height: 80px;
+  padding: .75rem 1.25rem;
+  margin-top: 1rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  animation: move 2s both;
+}
+
+.toast-error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.toast-heading {
+  margin-top: 10px;
+}

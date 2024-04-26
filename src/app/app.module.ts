@@ -22,6 +22,8 @@ import { AdminRequestComponent } from './components/admin/admin/admin-request/ad
 import { RegisterComponent } from './components/auth/signup-login/Register/register/register.component';
 import { MaterialModule } from './common/material/material/material.module';
 import { NewInterpeterComponent } from './components/admin/new-interpeter/new-interpeter.component';
+import { NotAuthorizedComponent } from './common/components/not-authorized/not-authorized.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { NewInterpeterComponent } from './components/admin/new-interpeter/new-in
     UserRequestComponent,
     AdminRequestComponent,
     RegisterComponent,
-    NewInterpeterComponent
+    NewInterpeterComponent,
+    NotAuthorizedComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,15 @@ import { NewInterpeterComponent } from './components/admin/new-interpeter/new-in
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    UserModule
+    UserModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-top-right',
+      // closeButton: true,
+      // progressBar: true,
+      // progressAnimation: 'increasing',
+      // preventDuplicates: true
+    })
     
   ],
   providers: [

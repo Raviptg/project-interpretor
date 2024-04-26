@@ -5,7 +5,9 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { LoginUser, SessionStore } from 'src/app/model/User';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
@@ -19,7 +21,18 @@ export class SignupLoginComponent {
   loginForm!: FormGroup;
   isActive!: boolean;
 
-  constructor(private fb: FormBuilder, private auth: AuthService, private router:Router) {}
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
+  constructor(private fb: FormBuilder, private auth: AuthService, private router:Router, private toast: ToastrService, private snackBar: MatSnackBar) {
+    this.auth.isInvalid$.subscribe(() => {
+      this.openSnackBar('Invalid Credentials', 'Close');
+    });
+
+    this.auth.notAuthoraised$.subscribe(() => {
+      this.NotAuth('Not Authoraised Person to Login','Close');
+    });
+  }
 
   ngOnInit(): void {
 
@@ -34,18 +47,18 @@ export class SignupLoginComponent {
         ],
       ],
       password: ['', [Validators.required, Validators.minLength(6)]],
-    });
-
-    
+    });    
   }
 
   submit() {
     //  console.log(this.loginForm.value);
+   
     if (this.loginForm.valid) {
       const user: LoginUser = new LoginUser();
       user.username = this.loginForm.value.username;
       user.password = this.loginForm.value.password;
-      this.auth.authLogin(user)
+      this.auth.authLogin(user);
+      
     }
   }
 
@@ -58,5 +71,19 @@ export class SignupLoginComponent {
 
   register(){
     this.router.navigate(["register"]);
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action,{
+      horizontalPosition: this.horizontalPosition,
+    verticalPosition: this.verticalPosition,
+    });
+  }
+
+  NotAuth(message: string, action: string) {
+    this.snackBar.open(message, action,{
+      horizontalPosition: this.horizontalPosition,
+    verticalPosition: this.verticalPosition,
+    });
   }
 }
