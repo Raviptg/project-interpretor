@@ -2,12 +2,11 @@
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000; /* Adjust as needed */
+    z-index: 1000;
   }
   .table-container {
-    // margin-top: 100px; /* Adjust based on the combined height of header and search bar */
-    max-height: calc(85vh - 85px); /* Set max height to fill viewport minus header and search bar */
-    overflow: auto; /* Enable vertical scrolling */
+    max-height: calc(85vh - 85px); 
+    overflow: auto; 
   }
   
   .mat-table {
@@ -18,19 +17,19 @@
     position: sticky;
     top: 0;
     background-color: white;
-    z-index: 800; /* Ensure it's above the table body */
+    z-index: 800; 
   }
   
   .mat-header-cell,
   .mat-cell {
     padding: 8px 16px;
-    white-space: nowrap; /* Prevent wrapping content in cells */
+    white-space: nowrap; 
   }
   
 .Search{
-  margin-top: 2%;
-    display: flex;
-    justify-content: center;
+   margin-top: 2%;
+   display: flex;
+   justify-content: space-around;
     
     .filter{
         width: 80rem;
@@ -51,15 +50,9 @@
     .demo-row-is-clicked {
         font-weight: bold;
     }
-
-    // td {
-    //     text-align: center !important; 
-    //     vertical-align: middle !important;   
-    //     align-items: flex-start;       
-    // }
     th {
         font-weight: bold;
-        text-align: center !important; 
+        padding-left: 60px;
         // vertical-align: middle !important;
       }
 

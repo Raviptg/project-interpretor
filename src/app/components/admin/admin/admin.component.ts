@@ -1,14 +1,13 @@
 import { LiveAnnouncer } from '@angular/cdk/a11y';
-import { Component, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api/api.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { InterpeterRequestComponent } from './interpeter-request/interpeter-request.component';
-// import { InterpeterRequestComponent } from './interpeter-request/interpeter-request.component';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-admin',
@@ -21,12 +20,13 @@ export class AdminComponent {
   originalDataSource: any[] = [];
 
   constructor(private __liveAnnouncer: LiveAnnouncer,
-              private router: Router,
               public dialog: MatDialog,
               private apiService: ApiService,
-              public auth: AuthService) {}
+              public auth: AuthService,
+              // private excelService: ExcelService
+            ) {}
 
-  displayedColumns: string[] = ['fullName', 'city', 'languages', 'Action'];
+  displayedColumns: string[] = ['FullName', 'City', 'Languages', 'Action'];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -67,5 +67,15 @@ export class AdminComponent {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  @ViewChild('TABLE') table: ElementRef;
+
+  ExpoetExcel(){
+    const personDetails = this.dataSource.data.map(({ id, fullName, city, languages }) => ({ fullName, city, languages }));
+    const workSheet = XLSX.utils.json_to_sheet(personDetails);
+    const workBook: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workBook, workSheet, 'Interpeters');
+    XLSX.writeFile(workBook, 'Interpeters Data.xlsx');
   }
 }

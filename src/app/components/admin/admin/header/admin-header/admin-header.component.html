@@ -7,11 +7,19 @@
     </ul>
     <div class="user-info">
       <p style="color: black;">Welcome {{firstName}}</p>
+
+      <!-- <button mat-button [matMenuTriggerFor]="aboveMenu">
+        <mat-icon>settings</mat-icon>
+      </button>
+          <mat-menu #aboveMenu="matMenu" yPosition="above">
+             <mat-icon class="map">assignment_returned</mat-icon>
+          </mat-menu> -->
+
       <button mat-button [matMenuTriggerFor]="menu">
         <mat-icon>power_settings_new</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button type="button" mat-menu-item class="btn" (click)="auth.logout()">LogOut</button>
+        <button type="button" mat-menu-item class="btn" (click)="auth.logout()" style="padding-left: 24px;">LogOut</button>
       </mat-menu>
     </div>
   </nav>

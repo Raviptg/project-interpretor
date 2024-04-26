@@ -24,8 +24,8 @@ export class AdminRequestComponent {
     this.apiService.getAdminRequestData().subscribe(data => {
       this.dataSource = data;
       this.originalDataSource = data;
-      this.dataSource = new MatTableDataSource(data); // Initialize as MatTableDataSource
-      this.dataSource.paginator = this.paginator; // Set paginator
+      this.dataSource = new MatTableDataSource(data); 
+      this.dataSource.paginator = this.paginator; 
       this.dataSource.sort = this.sort; 
     });
   }
@@ -33,7 +33,7 @@ export class AdminRequestComponent {
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim().toLowerCase();
     if (filterValue === '') {
-      this.dataSource.data = this.originalDataSource.slice(); // Update data array
+      this.dataSource.data = this.originalDataSource.slice(); 
     } else {
       this.dataSource.filter = filterValue;
     }
