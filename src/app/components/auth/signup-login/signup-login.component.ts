@@ -86,4 +86,6 @@ export class SignupLoginComponent {
     verticalPosition: this.verticalPosition,
     });
   }
+
+  ////Ravi
 }
