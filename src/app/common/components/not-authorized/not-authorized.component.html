@@ -1,4 +1,4 @@
-<div class="container ">
+<!-- <div class="container ">
     <div class="mat-elevation-z8">     
         <div></div>   
         <div  class="close" (click)="sign()">
@@ -13,4 +13,15 @@
       
     </div>
      </div>
-    
+     -->
+
+     <input type="file" (change)="onFileChange($event)" multiple="false" />
+     <table class="sjs-table" style="border: solid;">
+         <tbody>
+       <tr *ngFor="let row of data" style="border: solid; border-right: solid;">
+             <td *ngFor="let val of row"  style=" border-right: solid; ">
+                 {{val}}
+             </td>
+         </tr>
+     </tbody>
+     </table>

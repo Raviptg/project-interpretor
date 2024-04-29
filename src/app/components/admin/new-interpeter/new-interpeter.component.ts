@@ -37,17 +37,17 @@ export class NewInterpeterComponent {
     }
 
     accept(element: any) {
-      element.actions = 'Accepted';
-      this.apiService.updaterequest(element).subscribe((data: any) => {
-        console.log(data);
-      });
+      element.isActive = 'Appeoved';
+      // this.apiService.updaterequest(element).subscribe((data: any) => {
+      //   console.log(data);
+      // });
     }
   
     deny(element: any) {
-      element.actions = 'Denied';
-      this.apiService.updaterequest(element).subscribe((data: any) => {
-        console.log(data);
-      });
+      element.isActive = 'Denied';
+      // this.apiService.updaterequest(element).subscribe((data: any) => {
+      //   console.log(data);
+      // });
     }
 
 }

@@ -46,11 +46,11 @@
       </ng-container>
 
         <ng-container matColumnDef="actions">
-          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <th mat-header-cell *matHeaderCellDef> Action </th>
           <td mat-cell *matCellDef="let element" [ngClass]="{ 'accepted': element.actions === 'Accepted', 'denied': element.actions === 'Denied' }"> 
             <div *ngIf="element.actions.length === 0 || element.actions == null" style="display: flex; justify-content: space-between;">
-              <button class="mat-raised-button btn" color="primary" mat-icon-button (click)="accept(element)">Accept</button>
-              <button class="mat-raised-button btn" color="warn" mat-icon-button (click)="deny(element)">Deny</button>
+              <button color="primary" mat-button (click)="accept(element)">Accept</button>
+              <button  color="warn" mat-button (click)="deny(element)">Deny</button>
             </div>
             <span *ngIf="element.actions && element.actions.length > 0">
                {{ element.actions }}
