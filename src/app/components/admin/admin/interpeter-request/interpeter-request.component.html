@@ -76,7 +76,14 @@
             <mat-error *ngIf="requestForm.get('CaseDate')?.invalid && (requestForm.get('CaseDate')?.dirty || requestForm.get('CaseDate')?.touched)">
               Case time is required
             </mat-error>   
-            </div> 
+        </div> 
+         
+        <div class="col-md-3" style="display: flex; margin-top: 12px;">
+          <button mat-button color="primary" (click)="fetchCaseDetails()">Case Details</button>
+          <!-- <button mat-button color="primary" (click)="addForm()">Add Form</button> -->
+          <button mat-button color="warn" >Remove Form</button>
+      </div>
+
       </div>
   
     </form>
@@ -84,8 +91,8 @@
   </mat-dialog-content>
   
   <mat-dialog-actions align="end">
-    <button mat-button mat-button color="primary" (click)="fetchCaseDetails()">Fetch Details</button>
-    <button mat-button mat-dialog-close mat-button color="warn">Cancel</button>
+    
+    <button mat-button mat-dialog-close color="warn">Cancel</button>
     <button mat-button [mat-dialog-close]="true" mat-button color="primary"  type="submit" [disabled]="requestForm.invalid" (click)="onSubmit()">Send</button>
   </mat-dialog-actions>
 
