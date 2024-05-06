@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/services/api/api.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
@@ -18,7 +18,18 @@ export class InterpeterRequestComponent {
   constructor(private fb: FormBuilder,
               private datePipe: DatePipe,
               private apiService: ApiService,
-              public auth: AuthService){}
+              public auth: AuthService){
+                this.requestForm = this.fb.group({
+                  // caseId: this.fb.array([this.fb.control(null)]),
+                  // caseName: this.fb.array([this.fb.control(null)]),
+                  // courtId: this.fb.array([this.fb.control(null)]),
+                  // courtLocation :this.fb.array([this.fb.control(null)]) ,
+                  // personName : this.fb.array([this.fb.control(null)]),
+                  // languages : this.fb.array([this.fb.control(null)]),
+                  // CaseDate :this.fb.array([this.fb.control(null)])
+                  newRequest : this.fb.array([]),
+                })
+              }
 
     dateControl = new FormControl(new Date());
     
@@ -85,5 +96,25 @@ export class InterpeterRequestComponent {
       }
     );
   }  
+
+  newRequest() {
+    return this.requestForm.get("newRequest") as FormArray
+  };
+  newRequestForm() : FormGroup{
+    return this.fb.group({
+      caseId: '',
+      caseName: '',
+      courtId: '',
+      courtLocation :'' ,
+      personName : '',
+      languages : '',
+      CaseDate :''
+      
+    })
+  }
+
+  addForm() {
+    this.newRequest().push(this.newRequestForm());
+  }
 
 }
