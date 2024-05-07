@@ -1,36 +1,75 @@
-.demo-table{  
-    padding: 1%;
-    .mat-mdc-row .mat-mdc-cell {
-        border-bottom: 1px solid transparent;
-        border-top: 1px solid transparent;
-        cursor: pointer;
-    }
+// .demo-table{  
+//     padding: 1%;
+//     .mat-mdc-row .mat-mdc-cell {
+//         border-bottom: 1px solid transparent;
+//         border-top: 1px solid transparent;
+//         cursor: pointer;
+//     }
       
-    .mat-mdc-row:hover .mat-mdc-cell {
-        border-color: currentColor;
-    }
+//     .mat-mdc-row:hover .mat-mdc-cell {
+//         border-color: currentColor;
+//     }
       
-    .demo-row-is-clicked {
-        font-weight: bold;
-    }
+//     .demo-row-is-clicked {
+//         font-weight: bold;
+//     }
 
-    td {
-        text-align: center !important; 
-        vertical-align: middle !important;   
-        align-items: flex-start;
+//     td {
+//         text-align: center !important; 
+//         vertical-align: middle !important;   
+//         align-items: flex-start;
              
-    }
-    th {
-        font-weight: bold;
-        text-align: center !important; 
-        vertical-align: middle !important;
-      }
-      .accepted {
-        color: green;
-      }
+//     }
+//     th {
+//         font-weight: bold;
+//         text-align: center !important; 
+//         vertical-align: middle !important;
+//       }
+//       .accepted {
+//         color: green;
+//       }
       
-      .denied {
-        color: red;
-      } 
+//       .denied {
+//         color: red;
+//       } 
 
+// }
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; 
+  padding: 15px;
+  
+}
+
+.example-card {
+  width: calc(25% - 20px); 
+  margin-bottom: 20px;
+  border: 1px solid;
+}
+
+.accepted {
+  color: green;
+}
+
+.denied {
+  color: red;
+} 
+.Search{
+  margin-top: 2%;
+  display: flex;
+  justify-content: space-around;
+   
+   .filter{
+       width: 80rem;
+   }
+}
+.action{
+  justify-content: end;
 }

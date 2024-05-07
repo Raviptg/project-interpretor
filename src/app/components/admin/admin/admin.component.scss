@@ -4,27 +4,27 @@
     width: 100%;
     z-index: 1000;
   }
-  .table-container {
-    max-height: calc(85vh - 85px); 
-    overflow: auto; 
-  }
+  // .table-container {
+  //   max-height: calc(85vh - 85px); 
+  //   overflow: auto; 
+  // }
   
-  .mat-table {
-    width: 100%;
-  }
+  // .mat-table {
+  //   width: 100%;
+  // }
   
-  .mat-header-row {
-    position: sticky;
-    top: 0;
-    background-color: white;
-    z-index: 800; 
-  }
+  // .mat-header-row {
+  //   position: sticky;
+  //   top: 0;
+  //   background-color: white;
+  //   z-index: 800; 
+  // }
   
-  .mat-header-cell,
-  .mat-cell {
-    padding: 8px 16px;
-    white-space: nowrap; 
-  }
+  // .mat-header-cell,
+  // .mat-cell {
+  //   padding: 8px 16px;
+  //   white-space: nowrap; 
+  // }
   
 .Search{
    margin-top: 2%;
@@ -35,27 +35,43 @@
         width: 80rem;
     }
 }
-.demo-table{  
-  padding: 2%;
-    .mat-mdc-row .mat-mdc-cell {
-        border-bottom: 1px solid transparent;
-        border-top: 1px solid transparent;
-        cursor: pointer;
-    }
+// .demo-table{  
+//   padding: 2%;
+//     .mat-mdc-row .mat-mdc-cell {
+//         border-bottom: 1px solid transparent;
+//         border-top: 1px solid transparent;
+//         cursor: pointer;
+//     }
       
-    .mat-mdc-row:hover .mat-mdc-cell {
-        border-color: currentColor;
-    }
+//     .mat-mdc-row:hover .mat-mdc-cell {
+//         border-color: currentColor;
+//     }
       
-    .demo-row-is-clicked {
-        font-weight: bold;
-    }
-    th {
-        font-weight: bold;
-        padding-left: 60px;
-        // vertical-align: middle !important;
-      }
+//     .demo-row-is-clicked {
+//         font-weight: bold;
+//     }
+//     th {
+//         font-weight: bold;
+//         padding-left: 60px;
+//         // vertical-align: middle !important;
+//       }
 
+// }
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; 
+  padding: 15px;
+  
 }
 
-
+.example-card {
+  width: calc(25% - 20px); 
+  margin-bottom: 20px;
+  border: 1px solid;
+}

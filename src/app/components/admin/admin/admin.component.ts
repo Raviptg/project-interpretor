@@ -16,7 +16,7 @@ import * as XLSX from 'xlsx';
 })
 export class AdminComponent {
 
-  dataSource: MatTableDataSource<any>;
+  dataSource = new MatTableDataSource<any>([]);
   originalDataSource: any[] = [];
 
   constructor(private __liveAnnouncer: LiveAnnouncer,
@@ -58,12 +58,18 @@ export class AdminComponent {
   }
 
   applyFilter(filterValue: string) {
-    filterValue = filterValue.trim().toLowerCase();
-    if (filterValue === '') {
-      this.dataSource.data = this.originalDataSource.slice();
-    } else {
-      this.dataSource.filter = filterValue;
-    }
+    // filterValue = filterValue.trim().toLowerCase();
+    // if (filterValue === '') {
+    //   this.dataSource.data = this.originalDataSource.slice();
+    // } else {
+    //   this.dataSource.filter = filterValue;
+    // }
+    // if (this.dataSource.paginator) {
+    //   this.dataSource.paginator.firstPage();
+    // }
+
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }

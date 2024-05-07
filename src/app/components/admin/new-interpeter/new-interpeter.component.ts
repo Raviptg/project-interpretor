@@ -14,7 +14,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class NewInterpeterComponent { 
 
-  dataSource: MatTableDataSource<any>;
+  dataSource = new MatTableDataSource<any>([]);
   originalDataSource: any[] = [];
 
   constructor(public dialog: MatDialog,
@@ -50,4 +50,11 @@ export class NewInterpeterComponent {
       // });
     }
 
+    applyFilter(filterValue: string) {
+      this.dataSource.filter = filterValue.trim().toLowerCase();
+  
+      if (this.dataSource.paginator) {
+        this.dataSource.paginator.firstPage();
+      }
+    }
 }
