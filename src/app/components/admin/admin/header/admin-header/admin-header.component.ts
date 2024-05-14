@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { SessionStore } from 'src/app/model/User';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
@@ -10,8 +11,15 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 export class AdminHeaderComponent {
   
   firstName: string;
+  clickedLink: string;
 
-  constructor(public auth: AuthService){}
+  constructor(public auth: AuthService,private router: Router){
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.clickedLink = event.url;
+      }
+    });
+  }
 
   ngOnInit(): void {
     const sessionData = sessionStorage.getItem('loggedInUser');

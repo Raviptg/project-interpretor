@@ -1,30 +1,9 @@
-.header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-  }
-  // .table-container {
-  //   max-height: calc(85vh - 85px); 
-  //   overflow: auto; 
-  // }
-  
-  // .mat-table {
-  //   width: 100%;
-  // }
-  
-  // .mat-header-row {
-  //   position: sticky;
-  //   top: 0;
-  //   background-color: white;
-  //   z-index: 800; 
-  // }
-  
-  // .mat-header-cell,
-  // .mat-cell {
-  //   padding: 8px 16px;
-  //   white-space: nowrap; 
-  // }
+// .header {
+//     position: fixed;
+//     top: 0;
+//     width: 100%;
+//     z-index: 1000;
+//   }
   
 .Search{
    margin-top: 2%;
@@ -35,43 +14,63 @@
         width: 80rem;
     }
 }
-// .demo-table{  
-//   padding: 2%;
-//     .mat-mdc-row .mat-mdc-cell {
-//         border-bottom: 1px solid transparent;
-//         border-top: 1px solid transparent;
-//         cursor: pointer;
-//     }
-      
-//     .mat-mdc-row:hover .mat-mdc-cell {
-//         border-color: currentColor;
-//     }
-      
-//     .demo-row-is-clicked {
-//         font-weight: bold;
-//     }
-//     th {
-//         font-weight: bold;
-//         padding-left: 60px;
-//         // vertical-align: middle !important;
-//       }
 
-// }
+app-admin-header {
+  width: 100%; /* Ensure the header spans the full width */
+}
+
+.search-container {
+  display: flex;
+  justify-content: center; /* Center the search bar horizontally */
+  margin-top: 20px; /* Adjust the margin as needed */
+  margin-bottom: 20px; /* Adjust the margin as needed */
+}
+
+
+@media screen and (max-width: 600px) {
+  .search-container {
+    flex-direction: column; /* Stack elements vertically on small screens */
+    align-items: stretch; /* Stretch elements to full width */
+  }
+
+  .Search {
+    margin-bottom: 10px; /* Adjust the spacing between elements on small screens */
+  }
+
+  .filter {
+    margin-right: 0; /* Remove margin on small screens */
+    margin-bottom: 10px; /* Adjust margin for smaller spacing */
+  }
+}
+
 
 .example-header-image {
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
 }
+
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; 
-  padding: 15px;
-  
+  justify-content: space-between;
+  margin: 20px;
 }
 
 .example-card {
-  width: calc(25% - 20px); 
-  margin-bottom: 20px;
-  border: 1px solid;
+  flex: 1 0 calc(25% - 20px);
+  margin: 10px;
+  max-width: calc(25% - 20px);
+  min-width: 200px; /* Set a minimum width to prevent content overflow */
 }
+
+.mat-card-title,
+.mat-card-subtitle,
+.mat-card-content p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; /* Truncate long text with an ellipsis */
+}
+
+
+
+

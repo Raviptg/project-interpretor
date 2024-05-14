@@ -1,27 +1,27 @@
-.navbar {
-    background-color: #b9e4b7;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-}
+// .navbar {
+//     background-color: #b9e4b7;
+//     padding: 10px;
+//     display: flex;
+//     justify-content: space-between;
+// }
   
-.nav-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    color: #fff;
-}
+// .nav-list {
+//     list-style-type: none;
+//     padding: 0;
+//     margin: 0;
+//     color: #fff;
+// }
   
-.nav-item {
-    display: inline-block;
-    padding: 10px;
-    cursor: pointer;
-}
+// .nav-item {
+//     display: inline-block;
+//     padding: 10px;
+//     cursor: pointer;
+// }
   
-.active {
-    background-color: rgb(15, 137, 41); /* Change to your desired background color */
-    color: white; /* Change to your desired text color */
-}
+// .active {
+//     background-color: rgb(15, 137, 41); /* Change to your desired background color */
+//     color: white; /* Change to your desired text color */
+// }
   
 .user-info {
     display: flex;
@@ -32,6 +32,42 @@
 .user-info p {
     margin: 0 10px;
 }
-.map{
-    margin-left: 40px;
-}
+
+.navbar {
+    background-color: #d1d3cd; /* Set the background color of the navbar */
+    padding: 10px; /* Add padding to the navbar */
+  }
+  
+  .nav-list {
+    list-style-type: none; /* Remove bullet points from the list */
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-item {
+    display: inline-block; /* Display list items horizontally */
+    margin-right: 20px; /* Add spacing between list items */
+    font-size: 18px; /* Set the font size of the links */
+  }
+  
+  .nav-item.active {
+    font-weight: bold; /* Make the active link bold */
+    color: rgb(25, 26, 25); /* Change the color of the active link */
+    // background-color: white;
+  }
+  
+  .user-info {
+    float: right; /* Align user info to the right */
+  }
+  
+  .user-info button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .user-info button:focus {
+    outline: none; /* Remove focus outline */
+  }
+  

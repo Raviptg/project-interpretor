@@ -5,11 +5,13 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { InterpeterRequestComponent } from './interpeter-request/interpeter-request.component';
 import { MaterialModule } from 'src/app/common/material/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InterpeterRequestFormComponent } from './interpeter-request/interpeter-request-form/interpeter-request-form.component';
 
 
 @NgModule({
   declarations: [
-    InterpeterRequestComponent
+    InterpeterRequestComponent,
+    InterpeterRequestFormComponent
   ],
   imports: [
     CommonModule,

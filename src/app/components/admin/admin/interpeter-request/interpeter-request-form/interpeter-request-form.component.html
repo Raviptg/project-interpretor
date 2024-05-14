@@ -1,0 +1,14 @@
+<form [formGroup]="requestForm" (ngSubmit)="onSubmit()" *ngIf="!!requestForm">
+    <div formArrayName="newForm">
+        <div class="slx-policy-list" *ngFor="let newForm of newFormArray(); let index = index">
+            <div [formGroupName]="index"> 
+                <input type="text" id="name" name="name" formControlName="name"/>
+                <input type="email" id="email" name="email" formControlName="email"/>
+                <button type="button" (click)="remove(index)">Remove</button>
+
+            </div>
+        </div>
+    </div>
+    <button type="submit">Submit</button>
+    <button (click)="addNewRequest()">Add New Request</button>
+</form>

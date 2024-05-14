@@ -1,8 +1,11 @@
 
 <mat-dialog-content class="mat-typography">
-    <form class="needs-validation" [formGroup]="requestForm"  >
+    <form class="needs-validation" [formGroup]="requestForm" *ngIf="!!requestForm" >
+      <div formArrayName="newForm">
+        <div class="slx-policy-list" *ngFor="let newForm of newFormArray(); let index = index">
+          <div [formGroupName]="index"> 
       <div class="note">
-        Please fill in the required details for Interpreter! 
+        {{index}} Please fill in the required details for Interpreter! 
       </div>
       
       <div class="row">
@@ -10,10 +13,7 @@
         <div class="col-md-3">
           <mat-form-field appearance="outline" class="size">
             <mat-label>Case No</mat-label>
-            <input matInput type="text" formControlName="caseId">
-            <mat-error *ngIf="requestForm.get('caseId')?.invalid && (requestForm.get('caseId')?.dirty || requestForm.get('caseId')?.touched)">
-              Case No is required
-            </mat-error>
+            <input matInput type="text" formControlName="caseId" (input)="fetchDatas($event, newForm, index)">
           </mat-form-field>
         </div>  
   
@@ -21,9 +21,6 @@
           <mat-form-field appearance="outline" class="size">
             <mat-label>Case Name</mat-label>
             <input matInput type="text" formControlName="caseName" readonly>
-            <mat-error *ngIf="requestForm.get('caseName')?.invalid && (requestForm.get('caseName')?.dirty || requestForm.get('caseName')?.touched)">
-              Case Name is required
-            </mat-error>
           </mat-form-field>
         </div> 
   
@@ -31,9 +28,6 @@
           <mat-form-field appearance="outline" class="size">
             <mat-label>Court_Id</mat-label>
             <input matInput type="text" formControlName="courtId" readonly>
-            <mat-error *ngIf="requestForm.get('courtId')?.invalid && (requestForm.get('courtId')?.dirty || requestForm.get('courtId')?.touched)">
-              Court Id is required
-            </mat-error>
           </mat-form-field>
         </div> 
   
@@ -41,9 +35,6 @@
           <mat-form-field appearance="outline" class="size">
             <mat-label>Court Location</mat-label>
             <input matInput type="text" formControlName="courtLocation" readonly>
-            <mat-error *ngIf="requestForm.get('courtLocation')?.invalid && (requestForm.get('courtLocation')?.dirty || requestForm.get('courtLocation')?.touched)">
-              Court Location is required
-            </mat-error>
           </mat-form-field>
         </div> 
   
@@ -55,9 +46,6 @@
           <mat-form-field appearance="outline" class="size">
             <mat-label>Person Name</mat-label>
             <input matInput type="text" formControlName="personName" readonly>
-            <mat-error *ngIf="requestForm.get('personName')?.invalid && (requestForm.get('personName')?.dirty || requestForm.get('personName')?.touched)">
-              Person Name is required
-            </mat-error>
           </mat-form-field>
         </div> 
   
@@ -65,34 +53,32 @@
           <mat-form-field appearance="outline" class="size">
             <mat-label>Person language</mat-label>
             <input matInput type="text" formControlName="languages" readonly>
-            <mat-error *ngIf="requestForm.get('languages')?.invalid && (requestForm.get('languages')?.dirty || requestForm.get('languages')?.touched)">
-              Person language is required
-            </mat-error>
           </mat-form-field>
         </div> 
   
         <div class="col-md-3">
             <input type="datetime-local" formControlName="CaseDate" class="date" placeholder="datetime">     
-            <mat-error *ngIf="requestForm.get('CaseDate')?.invalid && (requestForm.get('CaseDate')?.dirty || requestForm.get('CaseDate')?.touched)">
-              Case time is required
-            </mat-error>   
         </div> 
          
         <div class="col-md-3" style="display: flex; margin-top: 12px;">
-          <button mat-button color="primary" (click)="fetchCaseDetails()">Case Details</button>
-          <button mat-button color="primary" (click)="addForm()">Add Form</button>
-          <button mat-button color="warn" >Remove Form</button>
+          <!-- <button mat-button color="primary" (click)="fetchCaseDetails()">Case Details</button> -->
+        
+          <button mat-button color="warn" (click)="remove(index)" >Remove Form</button>
       </div>
 
       </div>
-  
+        </div>  
+      </div> 
+      </div>   
     </form>
   
   </mat-dialog-content>
   
   <mat-dialog-actions align="end">
-    
+    <button mat-button color="primary" (click)="addForm()">Add Form</button>
     <button mat-button mat-dialog-close color="warn">Cancel</button>
     <button mat-button [mat-dialog-close]="true" mat-button color="primary"  type="submit" [disabled]="requestForm.invalid" (click)="onSubmit()">Send</button>
   </mat-dialog-actions>
 
+
+ <!-- <app-interpeter-request-form></app-interpeter-request-form> -->
