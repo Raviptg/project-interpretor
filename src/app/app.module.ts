@@ -24,6 +24,7 @@ import { MaterialModule } from './common/material/material/material.module';
 import { NewInterpeterComponent } from './components/admin/new-interpeter/new-interpeter.component';
 import { NotAuthorizedComponent } from './common/components/not-authorized/not-authorized.component';
 import { ToastrModule } from 'ngx-toastr';
+import { ProfileComponent } from './components/user/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ToastrModule } from 'ngx-toastr';
     AdminRequestComponent,
     RegisterComponent,
     NewInterpeterComponent,
-    NotAuthorizedComponent
+    NotAuthorizedComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

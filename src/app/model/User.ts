@@ -26,3 +26,14 @@ export class SessionStore {
     public personId : number;
     public isActive: boolean
 }
+
+export interface UserProfile {
+    fullName: string;
+    userName: string;
+    phone: string;
+    city: string;
+    state: string;
+    zip: string;
+    languages: string;
+    country: string;
+  }

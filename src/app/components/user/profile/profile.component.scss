@@ -1,0 +1,26 @@
+.center-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+}
+
+.gradient-custom {
+    background: #f6d365;
+    
+    background: -webkit-linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1));
+    
+    background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1))
+} 
+.header{
+    display: flex;
+    justify-content: space-around;
+}
+// .example-header-image {
+//     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+//     background-size: cover;
+// }
+.data{
+    padding: 30px;
+}
+  

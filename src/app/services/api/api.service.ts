@@ -49,4 +49,8 @@ export class ApiService {
   newInterpeter(): Observable<any> {
     return this.http.get(`https://localhost:7013/api/CaseDetailes/NewInterpeter`)
   };
+
+  profile(personId: any) :Observable<any> {
+    return this.http.get<any>(`https://localhost:7013/api/Profile/${personId}`);
+  }
 }

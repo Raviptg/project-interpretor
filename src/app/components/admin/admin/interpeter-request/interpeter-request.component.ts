@@ -83,34 +83,33 @@ export class InterpeterRequestComponent implements OnInit {
   //   }
   // }
 
+
   onSubmit() {
     const personDetails = this.auth.getPersonDetails();
     if (personDetails) {
-      const PersonId = personDetails.personId;
-      const requestData = { ...this.requestForm.value, PersonId };
-      // Convert requestData into a list
-      const requestDataList = [requestData];
-
+      const personId = personDetails.personId;
+      const formValues = this.requestForm.value.newForm;
+  
+      const requestDataList = formValues.map((data: any) => ({ ...data, personId }));
       console.log(requestDataList);
-      // this.apiService.request(requestDataList).subscribe(
-      //   (response) => {
-      //     console.log('Request submitted successfully:', response);
-      //     // Optionally, you can reset the form after successful submission
-      //     this.requestForm.reset();
-      //   },
-      //   (error) => {
-      //     console.error('Error submitting request:', error);
-      //   }
-      // );
+
+      this.apiService.request(requestDataList).subscribe(
+        (response) => {
+          console.log('Request submitted successfully:', response);
+          // Optionally, you can reset the form after successful submission
+          this.requestForm.reset();
+        },
+        (error) => {
+          console.error('Error submitting request:', error);
+        }
+      );
     } else {
       console.error('Failed to get person details.');
     }
   }
   
-  
-  
-  
 
+  
   get formattedDate(): string {
     const dateValue = this.dateControl.value;
     const formattedDateString =
@@ -145,31 +144,7 @@ export class InterpeterRequestComponent implements OnInit {
     );
   }
 
-  // fetchCaseDetails() {
-  //   const caseId = this.requestForm.value.caseId;
-  //   this.apiService.getCaseData(caseId).subscribe(
-  //     (data) => {
-  //       if (Array.isArray(data) && data.length > 0) {
-  //         const firstCase = data[0];
-  //         this.requestForm.patchValue({
-  //           caseName: firstCase.caseName,
-  //           courtId: firstCase.courtId,
-  //           courtLocation: firstCase.courtLocation,
-  //           personName: firstCase.personName,
-  //           languages: firstCase.languages,
-  //         });
-  //       } else {
-  //         console.error('Empty or invalid response data');
-  //       }
-  //     },
-  //     (error) => {
-  //       console.error('Error fetching case details:', error);
-  //     }
-  //   );
-  // }
-
   get newRequests(): FormGroup {
-    // return this.requestForm.get('newRequests') as FormArray;
     return new FormGroup({
       courtId: new FormControl(''),
       courtLocation: new FormControl(''),
