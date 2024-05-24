@@ -53,4 +53,12 @@ export class ApiService {
   profile(personId: any) :Observable<any> {
     return this.http.get<any>(`https://localhost:7013/api/Profile/${personId}`);
   }
+
+  delete(personId:any) : Observable<any>{
+    return this.http.delete<any>(`https://localhost:7013/api/Profile/Delete/${personId}`)
+  }
+
+  update(updateRequest: any) : Observable<any> {
+    return this.http.put(`https://localhost:7013/api/Profile/Edit`, updateRequest)
+  }
 }

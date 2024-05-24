@@ -19,7 +19,7 @@ const routes: Routes = [
     component:UserRequestComponent
   },
   {
-    path:'Profile',
+    path:'profile',
     component: ProfileComponent
   }
 

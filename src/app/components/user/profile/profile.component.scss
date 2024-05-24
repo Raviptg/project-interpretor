@@ -16,11 +16,14 @@
     display: flex;
     justify-content: space-around;
 }
-// .example-header-image {
-//     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-//     background-size: cover;
-// }
+
 .data{
-    padding: 30px;
+    padding: 10px;
 }
-  
+.inputfield{
+     padding: 1%;
+}  
+
+.label {
+    font-size: 15px;
+}

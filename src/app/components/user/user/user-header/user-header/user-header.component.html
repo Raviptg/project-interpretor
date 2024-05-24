@@ -1,7 +1,8 @@
-<nav class="navbar">
+<!-- <nav class="navbar">
     <ul class="nav-list">
       <li class="nav-item" routerLink="/dashboard/user" [class.active]="clickedLink === '/dashboard/user'">Home</li>
       <li class="nav-item" routerLink="/dashboard/user/request" [class.active]="clickedLink === '/dashboard/user/request'">Requests</li>
+      <li class="nav-item" routerLink="/dashboard/user/Profile" [class.active]="clickedLink === '/dashboard/user/Profilet'">Profile</li>
     </ul>
     <div class="user-info">
       <p class="nav-item" style="color: black;">Welcome {{firstName}}</p>
@@ -9,8 +10,44 @@
         <mat-icon>power_settings_new</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button type="button" mat-menu-item class="btn" routerLink="/dashboard/user/Profile" style="padding-left: 25px;">Profile</button>
+        <button type="button" mat-menu-item class="btn" (click)="auth.logout()" style="padding-left: 25px;">LogOut</button>
+      </mat-menu>
+    </div>
+  </nav> -->
+
+  <nav class="navbar">
+    <ul class="nav-list">
+      <li 
+        class="nav-item" 
+        routerLink="/dashboard/user" 
+        [class.active]="clickedLink === '/dashboard/user'"
+      >
+        Home
+      </li>
+      <li 
+        class="nav-item" 
+        routerLink="/dashboard/user/request" 
+        routerLinkActive="active"
+      >
+        Requests
+      </li>
+      <li 
+        class="nav-item" 
+        routerLink="/dashboard/user/profile" 
+        routerLinkActive="active"
+      >
+        Profile
+      </li>
+    </ul>
+    <div class="user-info">
+      <p class="nav-item" style="color: black;">Welcome {{firstName}}</p>
+      <button mat-button [matMenuTriggerFor]="menu">
+        <mat-icon>power_settings_new</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
         <button type="button" mat-menu-item class="btn" (click)="auth.logout()" style="padding-left: 25px;">LogOut</button>
       </mat-menu>
     </div>
   </nav>
+  
+  
