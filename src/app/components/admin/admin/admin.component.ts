@@ -18,6 +18,8 @@ export class AdminComponent {
 
   dataSource = new MatTableDataSource<any>([]);
   originalDataSource: any[] = [];
+  filteredData : any[] = []
+  
 
   constructor(private __liveAnnouncer: LiveAnnouncer,
               public dialog: MatDialog,
@@ -39,6 +41,7 @@ export class AdminComponent {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      this.filteredData = this.dataSource.data;
     });
   }
 
@@ -57,22 +60,31 @@ export class AdminComponent {
     }
   }
 
+  // applyFilter(filterValue: string) {
+  //   // filterValue = filterValue.trim().toLowerCase();
+  //   // if (filterValue === '') {
+  //   //   this.dataSource.data = this.originalDataSource.slice();
+  //   // } else {
+  //   //   this.dataSource.filter = filterValue;
+  //   // }
+  //   // if (this.dataSource.paginator) {
+  //   //   this.dataSource.paginator.firstPage();
+  //   // }
+
+  //   this.dataSource.filter = filterValue.trim().toLowerCase();
+
+  //   if (this.dataSource.paginator) {
+  //     this.dataSource.paginator.firstPage();
+  //   }
+  // }
+
   applyFilter(filterValue: string) {
-    // filterValue = filterValue.trim().toLowerCase();
-    // if (filterValue === '') {
-    //   this.dataSource.data = this.originalDataSource.slice();
-    // } else {
-    //   this.dataSource.filter = filterValue;
-    // }
-    // if (this.dataSource.paginator) {
-    //   this.dataSource.paginator.firstPage();
-    // }
-
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
+    filterValue = filterValue.trim().toLowerCase();
+    this.filteredData = this.dataSource.data.filter(item => {
+      return Object.keys(item).some(key => {
+        return item[key].toString().toLowerCase().includes(filterValue);
+      });
+    });
   }
 
   @ViewChild('TABLE') table: ElementRef;

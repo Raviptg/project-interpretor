@@ -62,14 +62,16 @@
                       </div>
                       <div class="d-flex justify-content-start">
                           <div class="col" style="display: flex; justify-content: space-around;">
+                            <div style="padding-top: 10px;">
                               <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
                               <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
                               <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
-                              <div *ngIf="!isEditMode">
+                            </div>
+                              <div *ngIf="!isEditMode" >
                                 <button mat-button  mat-button color="primary" (click)="editMode(true)">Edit</button>
                                 <button mat-button  mat-button color="warn" (click)="deleteProfile()">Delete</button>
                               </div>
-                              <div *ngIf="isEditMode">
+                              <div *ngIf="isEditMode" >
                                 <button mat-button  mat-button color="primary" (click)="save()">Save</button>
                                 <button mat-button  mat-button color="warn" (click)="editMode(false)">Cancel</button>
                               </div>

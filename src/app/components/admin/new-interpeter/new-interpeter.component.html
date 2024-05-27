@@ -1,5 +1,6 @@
 <app-admin-header></app-admin-header>
 
+<div class="body">
 <div class="Search">
   <mat-form-field appearance="outline" class="filter">
     <mat-label>Search by Any Values</mat-label>
@@ -15,56 +16,15 @@
  
 </div>
 
-<!-- <section class="demo-table table-container" tabindex="0"> 
-    <div  *ngIf="dataSource">
-      <table mat-table [dataSource]="dataSource">
-  
-        <ng-container matColumnDef="fullName">
-          <th mat-header-cell *matHeaderCellDef> Interpreter Name </th>
-          <td mat-cell *matCellDef="let element">{{ element.fullName }}</td>
-        </ng-container>
-  
-        <ng-container matColumnDef="city">
-          <th mat-header-cell *matHeaderCellDef>Interpreter Location </th>
-          <td mat-cell *matCellDef="let element">{{ element.city }}</td>
-        </ng-container>
-  
-        <ng-container matColumnDef="languages">
-          <th mat-header-cell *matHeaderCellDef>Interpreter Languages </th>
-          <td mat-cell *matCellDef="let element">{{ element.languages }}</td>
-        </ng-container>
-  
-        <ng-container matColumnDef="Actions">
-          <th mat-header-cell *matHeaderCellDef>Action</th>
-          <td mat-cell *matCellDef="let element" [ngClass]="{ 'accepted': element.isActive === 'Appeoved', 'denied': element.isActive === 'Denied' }">
-            <ng-container *ngIf="!element.isActive">
-              <div style="display: flex; justify-content: space-around">
-                <button color="primary" mat-button (click)="accept(element)">Approve</button>
-                <button color="warn" mat-button (click)="deny(element)">Deny</button>
-              </div>
-            </ng-container>
-            <span *ngIf="element.isActive">{{ element.isActive }}</span>
-          </td>
-        </ng-container>
-        
-          
-  
-        <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
-  
-    </div> 
-  </section> -->
-
   <div class="card-container">
     <mat-card *ngFor="let item of dataSource.data" class="example-card mat-elevation-z8">
-      <mat-card-header>
+      <mat-card-header class="card-header">
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>{{ item.fullName }}</mat-card-title>
         <mat-card-subtitle>{{ item.city }}</mat-card-subtitle>
       </mat-card-header>
     
-      <mat-card-content>
+      <mat-card-content style="padding-top: 15px; ">
         <p>{{item.languages}}</p>
       </mat-card-content>
       
@@ -84,3 +44,4 @@
       </mat-card-actions>
     </mat-card>
   </div>
+</div>

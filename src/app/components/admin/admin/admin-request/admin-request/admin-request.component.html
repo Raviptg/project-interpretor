@@ -1,5 +1,5 @@
 <app-admin-header></app-admin-header>
-
+<div class="body">
 <div class="Search">
     <mat-form-field appearance="outline" class="filter">
       <mat-label>Search by Any Values</mat-label>
@@ -7,8 +7,7 @@
     </mat-form-field>
     </div>
     
-    <section class="demo-table table-container" tabindex="0">
-      <!-- <div class="demo-table"> -->
+    <!-- <section class="demo-table table-container mat-elevation-z8" tabindex="0">
         <table mat-table [dataSource]="dataSource">
     
           <ng-container matColumnDef="fullName">
@@ -62,7 +61,45 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
     
-        <mat-paginator [pageSizeOptions]="[5,10,20,30]" showFirstLastButtons aria-label="Select page of element">
+        <mat-paginator [pageSizeOptions]="[15,25,35,45,55,65]" showFirstLastButtons aria-label="Select page of element">
         </mat-paginator>
-      <!-- </div>  -->
-    </section>  
+    </section>   -->
+
+    <div class="card-container">
+      <mat-card *ngFor="let item of filteredData" class="example-card mat-elevation-z8">
+        <mat-card-header class="card-header">
+          <mat-card-title style="width: 140%;"> Interpert : {{ item.fullName }}</mat-card-title>
+          <mat-card-subtitle>Case ID: {{ item.caseId }}</mat-card-subtitle>
+        </mat-card-header>
+    
+        <mat-card-content style="padding-top: 2rem;">
+          <div class="row">
+            
+            <div class="col">
+              <p> <b>Person</b>: {{ item.person }}</p>
+              <p> <b>Language</b>: {{ item.personLanguage }}</p>
+            </div>
+            <div class="col">
+              <p> <b>Court ID</b>: {{ item.courtId }}</p>
+            <p> <b>Location</b>: {{ item.courtLocation }}</p>
+            </div>
+            <p> <b>Date</b>: {{ item.caseDate | date: 'medium' }}</p>
+
+          </div>
+        </mat-card-content>
+    
+        <mat-card-actions class="actions">
+            <b>Request Action:</b>
+            <p [ngClass]="{ 'accepted': item.actions === 'Accepted', 'denied': item.actions === 'Denied','Pending': !item.actions || item.actions.trim() === '' }" style=" margin: 10px;"> 
+              <ng-container *ngIf="!item.actions || item.actions.trim() === ''">
+               <b>Pending</b> 
+              </ng-container>
+              <ng-container *ngIf="item.actions && item.actions.trim() !== ''">
+              <b>{{ item.actions }}</b>  
+              </ng-container>
+            </p>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+  </div>

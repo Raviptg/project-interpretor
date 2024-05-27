@@ -14,6 +14,7 @@ export class AdminRequestComponent {
   constructor(private apiService: ApiService){}
   dataSource : MatTableDataSource<any>;
   originalDataSource: any[] = [];
+  filteredData :any[] =[]
 
   displayedColumns: string[] = ['fullName','courtId', 'courtLocation', 'caseId', 'caseDate', 'person', 'personLanguage', 'actions'];
 
@@ -27,19 +28,16 @@ export class AdminRequestComponent {
       this.dataSource = new MatTableDataSource(data); 
       this.dataSource.paginator = this.paginator; 
       this.dataSource.sort = this.sort; 
+      this.filteredData= this.dataSource.data;
     });
   }
 
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim().toLowerCase();
-    if (filterValue === '') {
-      this.dataSource.data = this.originalDataSource.slice(); 
-    } else {
-      this.dataSource.filter = filterValue;
-    }
-  
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
+    this.filteredData = this.dataSource.data.filter(item => {
+      return Object.keys(item).some(key => {
+        return item[key].toString().toLowerCase().includes(filterValue);
+      });
+    });
   }
 }

@@ -1,8 +1,17 @@
+app-user-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  }
 .center-section {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 90vh;
+    height: 100vh;
+    padding-top: 40px;
 }
 
 .gradient-custom {
@@ -12,11 +21,6 @@
     
     background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1))
 } 
-.header{
-    display: flex;
-    justify-content: space-around;
-}
-
 .data{
     padding: 10px;
 }

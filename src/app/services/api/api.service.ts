@@ -61,4 +61,8 @@ export class ApiService {
   update(updateRequest: any) : Observable<any> {
     return this.http.put(`https://localhost:7013/api/Profile/Edit`, updateRequest)
   }
+
+  newUser(newUser :any) : Observable<any>{
+    return this.http.post(`https://localhost:7013/api/AdminHome/NewUser`, newUser)
+  }
 }

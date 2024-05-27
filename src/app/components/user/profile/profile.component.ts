@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { SessionStore } from 'src/app/model/User';
 import { ApiService } from 'src/app/services/api/api.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
@@ -19,7 +20,7 @@ export class ProfileComponent implements OnInit {
 
   Language  = ['English', 'Telugu', 'Tamil', 'Hindi', 'Kanada','Malayalem'];
 
-  constructor(public auth: AuthService, private apiService: ApiService) {
+  constructor(public auth: AuthService, private apiService: ApiService, public router:Router) {
     this.dataSource = new MatTableDataSource<any>();
   }
 
@@ -61,7 +62,8 @@ export class ProfileComponent implements OnInit {
 
   deleteProfile(): void {
     this.apiService.delete(this.personId).subscribe((data : any) =>{
-      console.log(data);
+      this.router.navigate(["signupLogin"])
+      // console.log(data);
     })
   }
 

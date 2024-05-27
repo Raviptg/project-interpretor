@@ -37,11 +37,17 @@ export class NewInterpeterComponent {
     }
 
     accept(element: any) {
-      element.isActive = 'Appeoved';
-      // this.apiService.updaterequest(element).subscribe((data: any) => {
-      //   console.log(data);
-      // });
+      const item = this.dataSource.data.find((item: any) => item.id === element.id);
+      if (item) {
+        const personId = item.personId;
+        const newUser = { personId}
+        this.apiService.newUser(newUser).subscribe((newUser: any) => {
+        });
+      } else {
+        console.error('Item not found in dataSource');
+      }
     }
+    
   
     deny(element: any) {
       element.isActive = 'Denied';

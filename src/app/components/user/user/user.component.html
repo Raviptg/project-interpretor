@@ -3,20 +3,23 @@
 <!-- <p>Hello {{auth.userRole}}</p>
 <button (click)="auth.logout()">Logout</button> -->
 
+<div class="body">
 <div class="Search">
     <mat-form-field appearance="outline" class="filter">
       <mat-label>Search by Any Values</mat-label>
       <input matInput #filterInput (keyup)="applyFilter(filterInput.value)" placeholder="Search by Any Values">
     </mat-form-field>
+
+    <button mat-raised-button [matMenuTriggerFor]="belowMenu" color="primary" style="margin: 0.6%">
+      Download
+    </button>
+        <mat-menu #belowMenu="matMenu" yPosition="below">
+            <button mat-button  mat-button style="padding-left: 35px;" (click)="ExpoetExcel()">Excel </button>
+        </mat-menu>
   </div>
 
-
-
-  <div class="demo-table table-container" tabindex="0" *ngIf="dataSource">
+  <!-- <div class="demo-table table-container mat-elevation-z8" tabindex="0" *ngIf="dataSource">
     <table mat-table [dataSource]="dataSource" >
-
-        <!-- matSort (matSortChange)="announceSortChange($event)"
-        mat-sort-header sortActionDescription="Sort by Court Id" -->
 
       <ng-container matColumnDef="Court Id">
         <th mat-header-cell *matHeaderCellDef > Court Id </th>
@@ -63,8 +66,46 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns; stri"></tr>
     </table>
   
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+    <mat-paginator [pageSizeOptions]="[15, 35, 55]"
                    showFirstLastButtons
                    aria-label="Select page of periodic elements">
     </mat-paginator>
+  </div> -->
+
+  <div class="card-container">
+    <mat-card *ngFor="let item of filteredData" class="example-card mat-elevation-z8">
+      <mat-card-header class="card-header">
+        <mat-card-title>Case Id: {{ item.caseId }}</mat-card-title>
+        <mat-card-subtitle>Case Type: {{ item.caseName }}</mat-card-subtitle>
+      </mat-card-header>
+  
+      <mat-card-content style="padding-top: 2rem;">
+        <div class="row" style="width: 110%;">
+          <div class="col">
+            <p>
+               <b style="font-size: small;">Court ID</b>:
+                {{ item.courtId }}
+          </p>
+          <p> <b style="font-size: small;">Location</b>: {{ item.courtLocation }}</p>
+          </div>
+          <div class="col">
+            <p> <b style="font-size: small;">Language</b>: {{ item.personLanguage }}</p>
+            <p> <b style="font-size: small;">Date</b>: {{ item.caseDate | date: 'medium' }}</p>
+          </div>
+        </div>
+      </mat-card-content>
+  
+      <mat-card-actions class="actions">
+        <div class="status">
+          <b style="font-size: small;">Status</b>: <span [ngClass]="getStatusColor(item.status)" style="font-size: small;">{{ item.status }}</span>
+        </div>
+        <div class="payment">
+          <b style="font-size: small;">Payment</b>: <span [ngClass]="getStatusColor(item.payment)" style="font-size: small;">{{ item.payment }}</span>
+        </div>
+      </mat-card-actions>
+    </mat-card>
   </div>
+  
+  
+  
+</div>

@@ -1,4 +1,6 @@
 <app-user-header></app-user-header>
+
+<div class="body">
 <div class="Search">
     <mat-form-field appearance="outline" class="filter">
       <mat-label>Search by Any Values</mat-label>
@@ -6,11 +8,10 @@
     </mat-form-field>
   </div>
 
-<div class="demo-table table-container" tabindex="0" *ngIf="dataSource">
+<!-- <div class="demo-table table-container mat-elevation-z8" tabindex="0" *ngIf="dataSource">
     <table mat-table [dataSource]="dataSource"  matSort >
   
       <ng-container matColumnDef="courtId">
-        <!--(matSortChange)="announceSortChange($event)" mat-sort-header sortActionDescription="Sort by Court_Id" -->
         <th mat-header-cell *matHeaderCellDef  > Court_Id </th>
         <td mat-cell *matCellDef="let element" > {{element.courtId}} </td>
       </ng-container>
@@ -62,8 +63,52 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+    <mat-paginator [pageSizeOptions]="[15, 35, 50]"
                    showFirstLastButtons
                    aria-label="Select page of periodic elements">
     </mat-paginator>
+</div> -->
+
+<div class="card-container">
+  <mat-card *ngFor="let item of dataSource.data" class="example-card mat-elevation-z8">
+    <mat-card-header class="card-header">
+      <mat-card-title>Case Id: {{ item.caseId }}</mat-card-title>
+      <mat-card-subtitle>Case Type: {{ item.caseName }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content style="padding-top: 2rem;">
+      <div class="row" style="width: 110%;">
+        <div class="col">
+          <p>
+             <b style="font-size: small;">Court ID</b>:
+              {{ item.courtId }}
+        </p>
+        <p> <b style="font-size: small;">Location</b>: {{ item.courtLocation }}</p>
+        </div>
+        <div class="col">
+          <p> <b style="font-size: small;">Language</b>: {{ item.personLanguage }}</p>
+          <p><b style="font-size: small;">Date</b>: {{ item.caseDate | date: 'MMM d, y, h:mm a' }}</p>
+
+          <!-- <p> <b style="font-size: small;">Date</b>: {{ item.caseDate | date: 'MMM d, y, h:mm a' }}</p> -->
+        </div>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <div class="status">
+          <td  [ngClass]="{ 'accepted': item.actions === 'Accepted', 'denied': item.actions === 'Denied' }"> 
+            <div *ngIf="item.actions.length === 0 || item.actions == null" style="display: flex; justify-content: space-between;">
+              <button color="primary" mat-button (click)="accept(item)">Accept</button>
+              <button  color="warn" mat-button (click)="deny(item)">Deny</button>
+            </div>
+            <span *ngIf="item.actions && item.actions.length > 0">
+               {{ item.actions }}
+            </span>
+          </td> 
+        
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
 </div>

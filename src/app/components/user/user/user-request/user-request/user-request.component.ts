@@ -15,19 +15,12 @@ export class UserRequestComponent {
 
   personId: number;
   dataSource: MatTableDataSource<any>;
+  filterData :any = []
   
-  constructor(public auth: AuthService,  private apiService:ApiService,private _liveAnnouncer: LiveAnnouncer){this.dataSource = new  MatTableDataSource<any>();}
-
-  displayedColumns: string[] = [
-    'courtId',
-    'courtLocation',
-    'caseId',
-    'caseName',
-    'caseDate',
-    'person',
-    'personLanguage',
-    'actions',
-  ];
+  constructor(public auth: AuthService,  private apiService:ApiService,private _liveAnnouncer: LiveAnnouncer)
+  {this.dataSource = new  MatTableDataSource<any>();
+    this.filterData= this.dataSource.data
+  }
 
   ngOnInit(): void {
     const sessionData = sessionStorage.getItem('loggedInUser');
@@ -54,7 +47,8 @@ export class UserRequestComponent {
   }
 
   applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    const filterData = this.dataSource.data
+    this.filterData = filterValue.trim().toLowerCase();
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
