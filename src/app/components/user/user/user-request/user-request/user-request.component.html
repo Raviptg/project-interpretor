@@ -70,14 +70,14 @@
 </div> -->
 
 <div class="card-container">
-  <mat-card *ngFor="let item of dataSource.data" class="example-card mat-elevation-z8">
+  <mat-card *ngFor="let item of filteredData" class="example-card mat-elevation-z8">
     <mat-card-header class="card-header">
-      <mat-card-title>Case Id: {{ item.caseId }}</mat-card-title>
+      <mat-card-title>Case ID: {{ item.caseId }}</mat-card-title>
       <mat-card-subtitle>Case Type: {{ item.caseName }}</mat-card-subtitle>
     </mat-card-header>
 
     <mat-card-content style="padding-top: 2rem;">
-      <div class="row" style="width: 110%;">
+      <div class="row" style="width: 100%;">
         <div class="col">
           <p>
              <b style="font-size: small;">Court ID</b>:

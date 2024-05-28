@@ -15,11 +15,14 @@ export class UserRequestComponent {
 
   personId: number;
   dataSource: MatTableDataSource<any>;
-  filterData :any = []
-  
+  filterData :any = [];
+  filteredData : any[] =[];
+
   constructor(public auth: AuthService,  private apiService:ApiService,private _liveAnnouncer: LiveAnnouncer)
   {this.dataSource = new  MatTableDataSource<any>();
-    this.filterData= this.dataSource.data
+    this.filterData= this.dataSource.data;
+    this.filteredData = this.dataSource.data;
+
   }
 
   ngOnInit(): void {
@@ -28,6 +31,7 @@ export class UserRequestComponent {
       const session: SessionStore = JSON.parse(sessionData);
       this.personId = session.personId;
       this.getData();
+      this.filteredData = this.dataSource.data;
     }
   }
 
@@ -35,6 +39,7 @@ export class UserRequestComponent {
   public getData() {
     this.apiService.InterpeterRequest(this.personId).subscribe((data) => {
       this.dataSource.data = data;
+      this.filteredData = this.dataSource.data;
     });
   }
 
@@ -47,11 +52,12 @@ export class UserRequestComponent {
   }
 
   applyFilter(filterValue: string) {
-    const filterData = this.dataSource.data
-    this.filterData = filterValue.trim().toLowerCase();
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
+    filterValue = filterValue.trim().toLowerCase();
+    this.filteredData = this.dataSource.data.filter(item => {
+      return Object.keys(item).some(key => {
+        return item[key]?.toString().toLowerCase().includes(filterValue);
+      });
+    });
   }
 
   accept(element: any) {

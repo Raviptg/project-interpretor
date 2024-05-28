@@ -65,4 +65,8 @@ export class ApiService {
   newUser(newUser :any) : Observable<any>{
     return this.http.post(`https://localhost:7013/api/AdminHome/NewUser`, newUser)
   }
+
+  caseCount() : Observable<any> {
+    return this.http.get(`https://localhost:7013/api/AdminHome/TotalCaseCount`)
+  }
 }

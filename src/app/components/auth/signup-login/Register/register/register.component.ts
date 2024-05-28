@@ -11,7 +11,7 @@ import { ApiService } from 'src/app/services/api/api.service';
 export class RegisterComponent {
 
   registrationForm :FormGroup;
-  Language  = ['English', 'Telugu', 'Tamil', 'Hindi', 'Kanada','Malayalem'];
+  Language  = ['English', 'Telugu', 'Tamil', 'Hindi', 'Kanada','Malayalam'];
   Languages : string[]=[]
   error: string = '';
 

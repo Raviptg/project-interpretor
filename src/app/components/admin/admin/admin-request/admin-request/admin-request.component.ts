@@ -16,7 +16,7 @@ export class AdminRequestComponent {
   originalDataSource: any[] = [];
   filteredData :any[] =[]
 
-  displayedColumns: string[] = ['fullName','courtId', 'courtLocation', 'caseId', 'caseDate', 'person', 'personLanguage', 'actions'];
+  // displayedColumns: string[] = ['fullName','courtId', 'courtLocation', 'caseId', 'caseDate', 'person', 'personLanguage', 'actions'];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;

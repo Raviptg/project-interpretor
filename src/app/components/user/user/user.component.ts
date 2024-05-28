@@ -55,7 +55,7 @@ export class UserComponent {
     filterValue = filterValue.trim().toLowerCase();
     this.filteredData = this.dataSource.data.filter(item => {
       return Object.keys(item).some(key => {
-        return item[key].toString().toLowerCase().includes(filterValue);
+        return item[key]?.toString().toLowerCase().includes(filterValue);
       });
     });
   }

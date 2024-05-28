@@ -17,7 +17,7 @@ export class AuthService {
 
   public authLogin(data: LoginUser) {
     this.api.login(data).subscribe((result: any) => {
-      console.log(result);
+      // console.log(result);
       if (result.message == 'Success') {
         const session: SessionStore = new SessionStore();
         session.userName = result.person.userName;
