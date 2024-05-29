@@ -25,6 +25,7 @@ import { NewInterpeterComponent } from './components/admin/new-interpeter/new-in
 import { NotAuthorizedComponent } from './common/components/not-authorized/not-authorized.component';
 import { ToastrModule } from 'ngx-toastr';
 import { ProfileComponent } from './components/user/profile/profile.component';
+import { NgxStarsModule } from 'ngx-stars';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { ProfileComponent } from './components/user/profile/profile.component';
     ReactiveFormsModule,
     HttpClientModule,
     UserModule,
+    NgxStarsModule,
     ToastrModule.forRoot({
       timeOut: 3000,
       positionClass: 'toast-top-right',

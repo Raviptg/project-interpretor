@@ -44,10 +44,10 @@ export class AdminComponent {
       this.dataSource.sort = this.sort;
       this.filteredData = this.dataSource.data;
     });
-    this.apiService.caseCount().subscribe(data =>{
-      this.dataSource = data;
-      console.log(this.dataSource);
-    });
+    // this.apiService.caseCount().subscribe(data =>{
+    //   this.dataSource = data;
+    //   console.log(this.dataSource);
+    // });
   }
 
   openDialog(element: any) {
@@ -82,5 +82,21 @@ export class AdminComponent {
     const workBook: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workBook, workSheet, 'Interpeters');
     XLSX.writeFile(workBook, 'Interpeters Data.xlsx');
+  }
+
+  getItemRating(rating: number) {
+    let rate = [];
+    for(let i=0; i<rating; i++) {
+      rate.push("*")
+    }
+    return rate;
+  }
+
+  deactivate(item: any) {
+    // const url = `https://yourapi.com/users/${item.id}`;
+    console.log(item.personId);
+    this.apiService.delete(item.personId).subscribe((data : any) => {
+      alert('Interpeter DeActivated Successfully');
+    })
   }
 }

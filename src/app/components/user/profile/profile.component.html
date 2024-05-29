@@ -30,7 +30,7 @@
                   </div>
                   <div class="col-4 mb-3">
                       <h2 class="label">Languages</h2>
-                      <p *ngIf="!isEditMode" class="text-muted" style="width: 200%;">{{ getDataSourceValue('languages') }}</p>
+                      <p *ngIf="!isEditMode" class="text-muted" style="width: 96%;">{{ getDataSourceValue('languages') }}</p>
                       <mat-select placeholder="languages" *ngIf="isEditMode" class="inputfield" type="text" name="languages" formControlName="languages" multiple>
                         <mat-option *ngFor="let option of Language" [value]="option">{{ option }}</mat-option>
                       </mat-select>

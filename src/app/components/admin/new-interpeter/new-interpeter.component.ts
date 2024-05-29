@@ -37,7 +37,7 @@ export class NewInterpeterComponent {
     }
 
     accept(element: any) {
-      const item = this.dataSource.data.find((item: any) => item.id === element.id);
+      const item = this.dataSource.data.find((item: any) => item.personId === element.personId);
       if (item) {
         const personId = item.personId;
         const newUser = { personId}

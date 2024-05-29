@@ -1,75 +1,40 @@
-<!-- <app-admin-header></app-admin-header>
-
-<div class="body">
-<div class="Search">
-    <mat-form-field appearance="outline" class="filter">
-      <mat-label>Search by Any Values</mat-label>
-      <input matInput #filterInput (keyup)="applyFilter(filterInput.value)">
-    </mat-form-field>
-
-    <button mat-raised-button [matMenuTriggerFor]="belowMenu" color="primary" style="margin: 0.6%">
-        Download
-      </button>
-          <mat-menu #belowMenu="matMenu" yPosition="below">
-              <button mat-button  mat-button style="padding-left: 35px;" (click)="ExpoetExcel()">Excel </button>
-          </mat-menu>
-   
-  </div> -->
-  
-  <!-- <section class="demo-table table-container mat-elevation" tabindex="0"> 
+<!--<div class="body">
+  <section class="demo-table table-container mat-elevation" tabindex="0">
     <div  *ngIf="dataSource">
       <table mat-table [dataSource]="dataSource">
-  
+
         <ng-container matColumnDef="FullName">
           <th mat-header-cell *matHeaderCellDef> Interpreter Name </th>
           <td mat-cell *matCellDef="let element">{{ element.fullName }}</td>
         </ng-container>
-  
+
         <ng-container matColumnDef="City">
           <th mat-header-cell *matHeaderCellDef>Interpreter Location </th>
           <td mat-cell *matCellDef="let element">{{ element.city }}</td>
         </ng-container>
-  
+
         <ng-container matColumnDef="Languages">
           <th mat-header-cell *matHeaderCellDef>Interpreter Languages </th>
           <td mat-cell *matCellDef="let element">{{ element.languages }}</td>
         </ng-container>
-  
+
         <ng-container matColumnDef="Action">
           <th mat-header-cell *matHeaderCellDef> Action </th>
           <td mat-cell *matCellDef="let element">
             <button mat-button (click)="openDialog(element)" mat-button color="warn">Request</button>
           </td>
         </ng-container>
-  
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
-  
-     <mat-paginator [pageSizeOptions]="[2, 10, 20]" showFirstLastButtons aria-label="Select page of element"> </mat-paginator>
-    </div> 
-  
-  </section> -->
 
-  <!-- <div class="card-container">
-    <mat-card *ngFor="let item of dataSource.data" class="example-card mat-elevation-z8">
-      <mat-card-header class="card-header">
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{ item.fullName }}</mat-card-title>
-        <mat-card-subtitle>{{ item.city }}</mat-card-subtitle>
-      </mat-card-header>
-  
-      <mat-card-content style="padding-top: 15px;">
-        <p>{{ item.languages }}</p>
-      </mat-card-content>
-  
-      <mat-card-actions>
-        <button mat-button (click)="openDialog(item)" mat-button color="warn">Request</button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
+     <mat-paginator [pageSizeOptions]="[2, 10, 20]" showFirstLastButtons aria-label="Select page of element"> </mat-paginator>
+    </div>
+
+  </section>
 </div> -->
-  
+
 <app-admin-header></app-admin-header>
 
 <div class="body">
@@ -80,13 +45,14 @@
     </mat-form-field>
 
     <div style="padding-top: 7px;">
-    <button mat-raised-button [matMenuTriggerFor]="belowMenu" color="primary">
-      Download
-    </button>
-    <mat-menu #belowMenu="matMenu" yPosition="below">
-      <button mat-menu-item (click)="ExpoetExcel()">Excel</button>
-    </mat-menu>
-  </div>
+         <button mat-raised-button [matMenuTriggerFor]="belowMenu" color="primary">
+            Download
+         </button>
+         <mat-menu #belowMenu="matMenu" yPosition="below">
+           <button mat-menu-item (click)="ExpoetExcel()">Excel</button>
+         </mat-menu>
+   </div>
+
   </div>
 
   <div class="card-container">
@@ -94,17 +60,30 @@
       <mat-card-header class="card-header">
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>{{ item.fullName }}</mat-card-title>
-          <mat-card-subtitle>{{ item.city }}</mat-card-subtitle>
-          <mat-card-subtitle>Rating: {{ item.rating }}</mat-card-subtitle>
-      </mat-card-header>
 
+        <mat-card-subtitle>
+          {{ item.city }}
+        </mat-card-subtitle>
+
+        <mat-card-subtitle style="display: flex; color: gold;">
+          <div *ngFor="let i of getItemRating(item.rating)">
+            <i class="fas fa-star"></i>
+          </div>
+        </mat-card-subtitle>
+
+      </mat-card-header>
+  
       <mat-card-content style="padding-top: 15px;">
         <p>{{ item.languages }}</p>
       </mat-card-content>
-
-      <mat-card-actions>
-        <button mat-button (click)="openDialog(item)" color="warn">Request</button>
+  
+      <mat-card-actions style="display: flex; justify-content: space-around;">
+        <button mat-button (click)="openDialog(item)" color="primary">Request</button>
+        <button mat-button (click)="deactivate(item)" color="warn">Deactivate</button>
       </mat-card-actions>
     </mat-card>
   </div>
+  
 </div>
+
+
