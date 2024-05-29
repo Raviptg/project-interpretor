@@ -97,10 +97,10 @@
   
       <mat-card-actions class="actions">
         <div class="status">
-          <b style="font-size: small;">Status</b>: <span [ngClass]="getStatusColor(item.status)" style="font-size: small;">{{ item.status }}</span>
+          <b style="font-size: small;">Status</b>: <span [ngClass]="getStatusColor(item.status)" style="font-size: small;"><b>{{ item.status }}</b></span>
         </div>
         <div class="payment">
-          <b style="font-size: small;">Payment</b>: <span [ngClass]="getStatusColor(item.payment)" style="font-size: small;">{{ item.payment }}</span>
+          <b style="font-size: small;">Payment</b>: <span [ngClass]="getStatusColor(item.payment)" style="font-size: small;"><b>{{ item.payment }}</b></span>
         </div>
       </mat-card-actions>
     </mat-card>

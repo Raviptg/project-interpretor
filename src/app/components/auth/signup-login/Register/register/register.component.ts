@@ -60,8 +60,9 @@ export class RegisterComponent {
       this.apiService.registration(details).subscribe(
         (response) => {
           if (response || response.Success){
-            alert ('Registration is Completed')
-            this.router.navigate(["login"]);
+
+            alert ('Registration is Completed');
+            this.router.navigate(["signupLogin"]);
           }else{
             alert("Registration is Failed")
           }
@@ -72,7 +73,7 @@ export class RegisterComponent {
         }
       )      
    }
-    this.reset();
+   this.reset();
   }
 
   goToLogin(){
